@@ -22,6 +22,15 @@ from datetime import datetime
 hostname, username, password = ['', '', '']
 
 
+def total_seconds(start, end):
+    delta = end - start
+    if hasattr(delta, 'total_seconds'):
+        return delta.total_seconds()
+    else:
+        result = float(delta.microseconds) / 10**6 + delta.seconds + delta.days * 24 * 3600
+        return 0.01 if result == 0 else result
+
+
 def sizeof_fmt(num, suffix='B'):
     """@todo: Docstring for sizeof_fmt
 
@@ -198,7 +207,7 @@ def optimize_rsu(dbname, tables_list, fcpmax):
 
         """
 
-        time_spent = (datetime.now() - optimize_start).total_seconds()
+        time_spent = total_seconds(optimize_start, datetime.now())
         print_color('ok', ' (' + '{:.1f}'.format(time_spent) + 's; ' + sizeof_fmt(table_size/time_spent) + '/s)')
 
     def launch_sql_queries(table, size):
