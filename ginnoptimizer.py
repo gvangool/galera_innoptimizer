@@ -208,7 +208,7 @@ def optimize_rsu(dbname, tables_list, fcpmax):
         """
 
         time_spent = total_seconds(optimize_start, datetime.now())
-        print_color('ok', ' (' + '{:.1f}'.format(time_spent) + 's; ' + sizeof_fmt(table_size/time_spent) + '/s)')
+        print_color('ok', ' (' + '{0:.1f}'.format(time_spent) + 's; ' + sizeof_fmt(table_size/time_spent) + '/s)')
 
     def launch_sql_queries(table, size):
         """
