@@ -160,7 +160,7 @@ def enable_rsu():
                         'wsrep_OSU_method', 'RSU',
                         'SET GLOBAL wsrep_OSU_method="RSU";')
     check_and_set_param('SHOW GLOBAL VARIABLES LIKE "wsrep_desync";',
-                        'wsrep_desync', 'ON', 'SET GLOBAL wsrep_desync=ON;')
+                        'wsrep_desync', 'ON', 'SET GLOBAL wsrep_desync=1;')
     print_color('ok')
 
 
@@ -173,7 +173,7 @@ def restore_toi():
     check_and_set_param('SHOW GLOBAL VARIABLES LIKE "wsrep_on";',
                         'wsrep_on', 'ON', 'SET GLOBAL wsrep_on=ON;')
     check_and_set_param('SHOW GLOBAL VARIABLES LIKE "wsrep_desync";',
-                        'wsrep_desync', 'OFF', 'SET GLOBAL wsrep_desync=OFF;')
+                        'wsrep_desync', 'OFF', 'SET GLOBAL wsrep_desync=0;')
     check_and_set_param('SHOW GLOBAL VARIABLES LIKE "wsrep_OSU_method";',
                         'wsrep_OSU_method', 'TOI',
                         'SET GLOBAL wsrep_OSU_method="TOI";')
